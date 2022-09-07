@@ -1,0 +1,314 @@
+$height-header: 120px;
+$height-nav: 60px;
+$width-menu: 150px;
+$gradient-bar: rgba(0, 128, 0,0.6),rgb(193, 223, 112),rgba(0, 128, 0,0.6);
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: var(--background-header-color);
+    height: $height-header;
+    z-index: 10;
+    h1{
+        color: var(--color-header);
+        text-align: center;
+        
+    }
+
+    #schimba_tema{
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 20;
+      padding: 7px;
+      background-color: var(--cl-hover);
+      border-radius: 5px;
+    }
+
+.header-top{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: var(--background-header-color); 
+  height: $height-nav;
+  align-items: center;
+  
+  img{
+    width: 40px;
+      padding: 5px;
+      border-radius: 50%;
+  }
+  .title{
+      margin: 10px;
+  }
+  .log{
+    display: flex;
+    padding-left: 10px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+     form{
+      input{
+        margin: 2px;
+        padding: 5px;
+        border-radius: 6px;
+        border: none;
+        
+      }
+      input[type=submit]{
+        border-radius: 50%;
+        
+        &:hover{
+          background-color: var(--cl-hover);
+        }
+      }
+
+     }
+   }
+}
+
+    nav{
+        width: 100%;
+        color: var(--color-header);
+        height: $height-nav;
+        background-color: var(--background-header-color);
+        #hamburger{
+            display: none;
+            height: $height-nav;
+            img{
+                height:100%;
+                width:auto;
+              }
+        }
+        #ch-menu{
+            display: none ;
+        
+          &:checked~ul.nav{
+            display: block;
+            transform-origin: -200% -200%;
+            animation: fade_nav 2s forwards linear;
+          }
+        }
+     ul.nav{
+         position: relative;
+         display: flex;
+         list-style-type: none;
+         font-weight: bold;
+         cursor: pointer;
+         z-index: 10;
+         .home{
+            display: none;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+         >li{ 
+             border-radius: 0px 50px 0px 0px;
+             box-shadow: 2px 0px 2px  var(--shadow-color);  
+             width: $width-menu;
+             div{
+               width: 100%;
+             }
+            
+            >a{
+                display: block;
+                position: relative;
+                width: $width-menu;
+                height: 100%;
+                color: var(--color-header);
+                text-decoration: none;
+                
+                &:hover{
+                  &:after{
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: $width-menu;
+               height: 20%;
+               background-image: linear-gradient($gradient-bar);
+               animation: bar-menu 0.5s 1 forwards linear;
+               
+             }
+                }
+                &::after{
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: $width-menu;
+                  height: 20%;
+                  background-image: linear-gradient($gradient-bar);
+                  animation: bar-menu-reverse 0.5s 1 forwards linear; 
+                
+              }
+            }    
+              }
+         li{
+            position: relative;
+            padding: 0;
+            width: $width-menu;
+            height: $height-nav;
+            text-align: center;
+            line-height: $height-nav;
+            transition: 0.5s;
+            background-color: var(--background-header-color); 
+          ul{
+           display: none; 
+          
+           list-style-type: none;
+            li{
+                
+              background-color: var(--background-header-color);
+              box-shadow: 0 -1px 1px var(--shadow-color);
+              a{
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  text-decoration: none;
+                  color: var(--cl-text);
+                } 
+            } 
+           }
+           &:hover{
+             ul{
+                position: absolute;
+                top:$height-nav;
+                display: block;
+                color: var(--color-header);  
+                z-index: 10;
+                animation: meniu 0.7s;
+               li {
+                   &:hover{
+                background-color: var(--background-color-submenu);
+                     } 
+                }
+              }
+            } 
+            div{
+                
+            width: $width-menu;
+            border-radius: 0px 50px 0px 0px;
+            &:hover{
+                background-color: var(--background-color-submenu);
+            }
+                }
+            } 
+         
+        
+               
+        }
+    }
+  }
+    @keyframes fade_nav{
+      0%{
+        shape-outside: circle(0%);
+        clip-path: circle(0% at 0% 0%);
+      }
+      100%{
+        shape-outside: circle(100%);
+        clip-path: circle(100% at 50% 50%);
+      }
+    }
+
+    @keyframes bar-menu{
+        0%{top: 0; opacity: 0;}
+        100%{top: $height-nav -(20/100*$height-nav);}
+        
+    }
+    @keyframes bar-menu-reverse{
+        0%{top: $height-nav -(20/100*$height-nav);}
+        100%{top: 0; opacity: 0;}
+    }
+    @keyframes meniu{
+    0%{
+        transform: scale(0,0);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+    }
+    @media screen and (max-width: 900px){    
+      .header{ 
+         nav{
+          ul.nav{
+            >li{
+              #acasa{
+                display: none;
+                }
+              .home{
+                display: block; 
+                 }
+            }
+           }
+          }
+        }
+      }
+       
+    @media screen and (max-width: 700px) {    
+        .header{
+          h1{
+            text-shadow: 0px 1px 2px var(--shadow-color);    
+        }
+          #schimba_tema{
+            top: 70px;
+          }
+          .header-top{
+            height: $height-nav + 20px;
+          }
+           nav{
+            width: 100vw;
+            
+            #hamburger{
+                display: block;
+            }
+          ul.nav{
+            display: none;
+            >li{
+              width: 100%;
+                border-radius: 0px;
+                #acasa{
+                    display: block;
+                    }
+                  .home{
+                    display: none; 
+                     }
+                >a{ 
+                  width: 100%;
+                    &::after{
+                        display: none;
+                    }
+                    &:hover{
+                        background-color: var(--background-color-submenu);
+                    }
+                }
+            }
+            li{ 
+                  width: 100%;   
+                div{
+                width: 100%; 
+                border-radius: 0px;
+                }
+                ul{
+                    width: 100%;
+                    li{
+                       a{
+                           &::before{
+                            content:" \25B7\00A0	";
+                            color:white;
+                           }
+                       } 
+                       
+                      
+                    }
+                }
+                
+            }
+        }
+    } 
+        }
+        
+        
+        }

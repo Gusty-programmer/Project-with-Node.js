@@ -1,0 +1,264 @@
+
+
+$hght-header: 120px;
+$height-banner:50px;
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: visible;
+    a{
+        text-decoration: none;
+        color: var(--cl-link);
+    }
+
+}
+
+
+
+
+main{
+    margin-top: $hght-header; 
+   
+    #container {
+        #watermark,#banner1{
+            display: none;
+        }
+        height: auto;
+        display: grid;
+        
+        border: 1px solid var(--shadow-light);
+        grid-template-areas: "prezentare prezentare prezentare prezentare"
+                             "utilizatori date_utiliz date_utiliz date_site"
+                             "calendar calendar tabel tabel"
+                             "anunturi anunturi tabel tabel"
+                             "diverse diverse diverse diverse";
+    
+    #presentation{
+        grid-area: prezentare;
+        
+    }
+    #users{
+        grid-area: utilizatori;
+    }
+    #date-users{
+        grid-area: date_utiliz;
+    }
+    #date-site{
+        grid-area: date_site;
+    }
+    #sectcalendar{
+        grid-area: calendar;
+    }
+    #anunturi{
+        grid-area: anunturi;
+    }
+    #tabel{
+        grid-area: tabel;  
+    }
+    #diverse{
+        grid-area: diverse;
+    }
+    #sectcalendar{
+        #calendar{
+            display:grid;
+            grid-template-columns: repeat(7,1fr);
+            grid-gap:0.2rem;
+            color:var(--cl-text);
+        }
+        #calendar div:nth-child(n+8).zi{
+            border:1px solid var(--cl-text);
+        }
+        
+        #calendar div:nth-child(n+8).eveniment{
+            background-color: var(--color-footer);
+        }
+    }
+    section{
+        width: 100%;
+        min-height: 50px;
+        height: auto;
+        padding: 20px;
+        position: relative;
+        background-color: var(--culoare-verde-transp);
+        >div{
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-shadow: 0 0 6px 2px var(--shadow-color);
+            border-radius: 20px;
+            
+            .masina-prez{
+                margin-bottom: 30px;
+                width: 35%;
+            }
+            .hr{
+                margin-top: 1rem;
+                width: 100%;
+                height: 20px;
+                background-image:  repeating-linear-gradient(var(--border-color),var(--cl-hover) 10%,var(--shadow-color) 20%);
+                border-radius: 20px;
+            }
+            .present{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 1.5rem;
+                padding-left: 20px;
+                line-height: 2.5rem;
+                float: right;
+            }
+        }
+        
+    }
+}
+#exemple{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background: var(--body-background-light);
+    div{
+        .taburi-iframe{
+            height: auto;
+            border: none;
+            display: flex;
+            justify-content: center;
+            
+            a{
+                display: block;
+                padding: 5px 10px;
+                text-decoration: none;
+                text-align: center;
+                width: 110px;
+                color: var(--shadow-color);
+                background-image: var(--gradient-background-left);
+                border-radius: 20px 0px 0px 20px;
+                transition:color 0.4s linear;
+                &+a{
+                    margin-left: -17px;
+                }
+                &:hover{
+                    
+                    background-color: var(--shadow-color);
+                    background-image: none;
+                    color: white;
+                }
+            }
+        }
+        iframe{
+            border: 4px solid var(--shadow-light);
+            height: 320px;
+        }
+    }
+}
+}
+
+footer{
+    width: 100%;
+    padding: 0;
+    background-color: var(--color-footer);
+    display: flex;
+    height: $hght-header;
+      ul{
+        width: 30%;
+        margin: auto;
+        padding: 5px 30px;
+        list-style-type: none;
+        
+    
+       }
+    
+    
+     .gostart{
+        width: 100px;
+        display: block;
+        height: 100px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        box-shadow: 0 0 8px 4px var(--shadow-color);
+        background-color: var(--culoare-verde-usor);
+        opacity: 0.6;
+        transition: opacity 400ms linear;
+        text-align: center;
+        text-decoration: none;
+        z-index: 22;
+
+        #triunghi{
+            display: block;
+            
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 6px var(--shadow-color);
+            color: transparent;
+
+     }
+     &:hover{
+        opacity: 1;
+     }
+     }
+     #banner{
+        width: 80%;
+        height: $height-banner;
+        background-color: var(--culoare-verde-usor);
+        border: 2px solid var(--shadow-light);
+        justify-items: center;
+        line-height: $height-banner;
+        padding-left: 50px;
+        animation: fade_banner 5s forwards ;
+        transition: all 2s linear;
+        position: fixed;
+        bottom: 0;
+        left: 20px;
+        z-index: 22;
+     }
+    @keyframes fade_banner {
+        0%{
+            left: -100%;
+            background-color: var(--culoare-verde-usor);
+            border-color: var(--shadow-light);
+        }
+        25%{
+            background-color: var(--shadow-color);
+            border-color: var(--shadow-light);
+        }
+        50%{
+            background-color: var(--shadow-light);
+            border-color: var(--shadow-color);
+        }
+        100%{
+            left: 10%;
+            background-color: var(--shadow-color);
+            border-color: var(--shadow-light);
+        }
+
+    }
+}
+@media screen and (max-width:900px) {
+    main{
+        
+        #container{
+        grid-template-areas: "prezentare  prezentare"
+                             "utilizatori  date_utiliz"
+                             "date_site date_site"
+                             "calendar tabel"
+                             "anunturi tabel"
+                             "diverse diverse";
+    }
+}
+}
+@media screen and (max-width:700px) {
+    main{
+       margin-top: $hght-header + 20px;
+        #container {
+            display: block;
+            #presentation{
+                height: 700px;
+            }
+        }
+    }
+}

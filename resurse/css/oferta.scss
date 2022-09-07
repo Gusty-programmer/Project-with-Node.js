@@ -1,0 +1,46 @@
+.oferte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    
+}
+table{
+    border-collapse: collapse;
+    width: 500px;
+    tr{
+        transition: 0.5s;
+        &:hover{
+            box-shadow: 0 0  4px 4px var(--shadow_color) inset;
+        }
+    }
+    td,th{
+        padding: 10px;
+        border: 2px solid var(--cl-text);
+        &+td,+th{
+            @for $i from 1 through 4{
+            &:nth-child(#{$i}){    
+            @if $i%2==1{    
+            border-left: 3px solid var(--border-color);
+            }
+            @else{
+                border-left: 3px solid var(--cl-hover);  
+            }
+        }
+    }
+        }
+    }
+    thead{
+        border-bottom: 4px solid var(--cl-text);
+    }
+    tfoot{
+        border-top: 4px solid var(--cl-textr);
+        text-align: center;
+    }
+}
+@media screen and(max-width: 1000px) {
+    #tabel{
+        overflow-x: scroll;
+    }
+}

@@ -1,0 +1,34 @@
+.afisaj{
+    background-color: var(--culoare-verde-transp);
+    padding-left: 50px;
+} 
+.afisaj .error{
+    color: var(--color-important);
+    font-size: 1.2rem;
+}
+
+.date p label{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    width: 300px;
+    background-color: var(--culoare-verde-transp);
+   
+}
+.date p label input{
+    padding: 5px;
+    border-radius: 4px;
+}
+ h1{
+     color: var(--color-important);   
+    }
+    .btnform{
+        width: 100px;
+        padding: 3px;
+        margin: 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: chartreuse;
+        box-shadow: 2px 2px var(--shadow-color);
+        cursor: pointer;
+    }

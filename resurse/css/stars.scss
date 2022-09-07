@@ -1,0 +1,184 @@
+@use 'sass:list';
+@use 'sass:math';
+$clip: polygon(20% 10%, 33% 22%,37% 7%, 43% 20%, 
+50% 10%, 60% 30%, 75% 15%, 
+73% 30%, 92% 35%, 78% 50%, 
+90% 65%, 68% 72%, 63% 95%, 52% 87%, 40% 75%,  
+40% 75%,20% 90%, 22% 65%,
+7% 62%, 15% 47%, 7% 30%, 22% 27%);
+$step: 4;
+$raza: 45;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1000px;
+    height: 800px;
+    background: rgb(170, 223, 211);
+    
+    .base{
+    position: relative;
+    margin: auto;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    box-shadow: 0 0 23px rgb(158, 12, 80) inset,0 0 23px rgb(221, 218, 61) ;
+     animation: rot 50s infinite linear;
+    @function generator_star($pas,$raz) {
+        $a: 50;
+        $b: 50;
+        $stp: $pas;
+        $r: $raz;
+        // $x:1 ;
+        // $y: 1;
+         $list_x: null;
+         $list_y: null;
+        $rad:1;
+        $limit: math.floor(calc(100 / $stp));
+        $limit: $limit - 1;
+     @for $i from 1 to $limit {
+         @if $i %2 == 0 {
+             $r: $raz - 10;
+         }
+         @else {
+             $r: $raz;
+         }
+        $x:$stp*$i;
+        $sqrt: $r*$r - ($x - $a)*($x - $a);
+       $rad: sqrt($sqrt);
+       $y: math.floor($rad +$b);
+       $y: 0%+ $y;
+       $x: 0%+ $x;
+       $list_x: append($list_x, $x, space);
+       $list_y: append($list_y, $y, space);
+      }
+      @for $i from $limit to 1  {
+        @if $i %2 == 1 {
+            $r: $raz - 10;
+        }
+        @else {
+            $r: $raz;
+        }
+        $x:$stp*$i;
+    //     // $r: $r - $x;
+         $sqrt: $r*$r - ($x - $a)*($x - $a);
+    //      $y: sqrt($r*$r - ($x - $a)*($x - $a))+ $b;
+       $rad: sqrt($sqrt);
+       $y: math.floor($rad +$b);
+       $y:100 - $y;
+       $y: 0%+ $y;
+       $x: 0%+ $x;
+       $list_x: append($list_x, $x, space);
+       $list_y: append($list_y, $y, space);
+       
+      }
+
+        $list:(zip($list_x, $list_y));
+         $clip_path: polygon($list);
+     
+         @return $list;
+    }
+    @function sqrt($r) {
+        $x0: 1;
+        $x1: $x0;
+       
+        @for $i from 1 through 10 {
+            // math.div($x0 * $x0 - abs($r), 2 * $x0) or calc(($x0 * $x0 - abs($r)) / (2 * $x0))
+          // $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+          $x1: $x0 - math.div($x0 * $x0 - abs($r), 2 * $x0);
+          $x0: $x1;
+        }
+       $x1: $x1;
+        @return $x1;
+      }
+    @function color($nr) {
+         $a:1;
+         $b:2;
+         $c:3;
+        @if $nr%2 == 0 {
+            $a: 25*(20- $nr)%254;
+            $b: 3 + 25*$nr%254;
+            $c: 250 - 11*$nr; 
+        }
+         @if $nr%2 == 0 and $nr>7 == 0 {
+            $c: 25*(20- $nr)%254;
+            $a: 3 + 25*$nr%254;
+            $b: 250 - 11*$nr; 
+        }
+        @else if $nr%3 == 0 {
+            $b:255 - 25*$nr;
+            $a: 3 + 25*$nr%254;
+            $c: 23*$nr%254;
+        }
+        @else{
+            $c: 200 - 25*$nr%254;
+            $b: 3 + 25*$nr%254;
+            $a: 43*$nr%254;
+
+            }
+        $background: conic-gradient(rgb($a, $b, $c),rgb($b, $c, $a),
+                                    rgb($c, $a, $b),rgb($a, $a, $c),rgb($a, $b, $c));
+        //  $background:rgb($a, $b, $c);
+        @return $background;
+    }
+    $clip1: polygon(generator_star($step,45));
+    $clip2: polygon(generator_star($step,35));
+    $clip3: polygon(generator_star($step,50));
+    $clip4: polygon(generator_star($step,20));
+    @for $i from 0 through 49{
+   
+    div:nth-child(#{$i + 1}){
+    position: absolute;
+    top:1%* $i;
+    left:1%* $i;
+    width: 100% - 2*$i;
+    height: 100% - 2*$i;
+    z-index: #{$i};
+    border: 5px solid black;
+    background: color($i);
+    clip-path: $clip1;
+    animation: fly 18s infinite;
+    animation-timing-function: linear;
+    transition: 35s;
+     
+    
+    }
+ }
+ @keyframes fly {
+    0%{
+     clip-path: $clip1;
+    filter: hue-rotate(0deg);
+    } 
+    10%{
+        $step: 5;
+     clip-path: $clip2;
+     filter: hue-rotate(5 0deg);
+    } 
+    40%{
+     clip-path: $clip3;
+     filter: hue-rotate(90deg);
+    }
+    60%{
+     clip-path: $clip4;
+     filter: hue-rotate(180deg);
+    }
+    80%{
+     clip-path: $clip2;
+        filter: hue-rotate(270deg);
+    }
+    100%{ 
+     clip-path: $clip1;
+      filter: hue-rotate(0deg);
+    }
+  }
+}
+}
+@keyframes rot {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+ 
+ 

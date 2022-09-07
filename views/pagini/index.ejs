@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta name="description" content="Magazin Machete."/>
+    <meta name="keywords" content="machete,Magazin,modele,colecționar"/>
+    <title>Magazin Machete</title>
+    <%- include("../fragm/head.ejs"); %>
+</head>
+
+<body>
+  
+    <%- include("../fragm/header.ejs"); %>
+      
+  
+  <main>
+     
+    <div id="container">
+         <p id="watermark">Oprea <br>Mihai Daniel</p>
+    <div id="banner1">Acesta este un proiect scolar. Acceptați cookie-uri?  </div>        
+      <section id="presentation">
+          <div><h2>Salutările noastre!</h2>
+            <p class="present">  Ați ajuns in locul unde veți găsi <b>machetele potrivite</b>.
+                <br> Explorați diversele <a href="https://machete.ro/ro/" target="_blank">modele</a> și tipuri pe care vi le punem la dispozitie .
+                 <br> Dacă aveți ochi de colecționar, sigur veți găsi ceea ce căutați.</p>
+                 <a href="/resurse/imagini/machet_mare.jpeg" download><div class="masina-prez">
+                    <picture>
+                        <source srcset="./resurse/imagini/machet_mic.jpeg" media="(max-width:700px)"/>
+                        <source srcset="./resurse/imagini/machet_mediu.jpeg" media="(max-width:1200px)"/>
+                        <img src="./resurse/imagini/machet_mare.jpeg" alt="text"/>
+                    </picture>
+                </div>
+            </a>
+                
+            <hr class="hr"/>
+             
+            
+            
+            <div id="container-video">
+                <img class="img" src="resurse/imagini/backgr.jpg" alt="video"/>
+                <div id="centrare-video">
+                    <div id="clip-video">
+                        <div id="stil-video">
+                            <video width="320" height="240" autoplay poster="resurse/imagini/tank-tiger.png" controls playsinline  loop muted>
+                                <source src="resurse/video/T34-85-model.mp4" type="video/mp4"/>
+                                <source src="resurse/video/T34-85-model.3gp" type="video/3gp"/>
+                                <source src="resurse/video/T34-85-model.mpg" type="video/mpg"/>
+                                <track default src="/resurse/video/caption-tank.vtt" kind="captions" srclang="ro" label="romana"/>
+                                <track src="/resurse/video/caption-tank-en.vtt" kind="captions" srclang="en" label="engleza"/>
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p  ><span class="present"> Dacă nu găsiți ceva ce vă atrage, reveniți in altă zi, punem la dispoziție constant machete noi.</span></p>
+        </div>
+      </section>
+      <section id="users">
+          <div class="model"><h2>Utilizatori</h2>
+           
+            <%- "Ip-ul dumneavoastra este: "+ locals.ip %>
+
+            <p>Locatie : <%= locals.locatie %></p>
+            <p><b>Utilizatori online</b> (în ultimele 5 minute):
+                <% for (let i=0; i < locals.utiliz_online.length-1; i++) { %>
+                    <%- locals.utiliz_online[i].username %>(<%- locals.utiliz_online[i].nume %>), 
+                <%}%>
+                <% if(locals.utiliz_online.length>0) { %>
+                    <%- locals.utiliz_online[utiliz_online.length-1].username %>(<%- locals.utiliz_online[utiliz_online.length-1].nume %>)
+                <% }  %>
+            </p>
+            </div>
+           
+      </section>
+      <section id="date-users">
+          <div class="model"><h2>Date-Utilizatori</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum lacus nec ligula malesuada consequat. Vestibulum porta mattis ullamcorper. 
+              Proin lobortis quis dolor non iaculis. Quisque luctus nisl ac laoreet posuere. Maecenas nibh massa, luctus ac tellus vitae, condimentum eleifend diam. Morbi et felis mollis, mattis enim nec, sollicitudin nibh.
+               Praesent a dolor vel turpis bibendum facilisis sit amet eget elit. Etiam lacus enim, tincidunt in hendrerit eget, sollicitudin eu magna. Praesent ut est consequat, tempor erat ut, vulputate dolor.</p>  
+        </div>
+      </section>
+      <section id="date-site">
+          <div><h2>Date-site-server</h2>
+            <p>Maecenas nibh quam, laoreet eget tortor vel, sagittis condimentum risus. Mauris tincidunt nec lorem non ullamcorper. Suspendisse sed sagittis arcu. 
+                Aliquam molestie justo velit, ut eleifend sapien scelerisque non. Curabitur ac euismod quam. Curabitur augue enim, faucibus maximus dictum ut, mollis in quam. 
+                Aenean porta, lorem id luctus mattis, enim metus tincidunt lacus, vestibulum vulputate nibh est ac augue.</p>
+        </div>
+      </section>
+      <section id="sectcalendar"><div><h2>Calendar</h2>
+        <div id="calendar">
+            <div>L</div>
+            <div>Ma</div>
+            <div>Mi</div>
+            <div>J</div>
+            <div>V</div>
+            <div>S</div>
+            <div>D</div>
+        <% 
+        nrZile=[31,28,31,30,31,30,31,31,30,31,30,31];
+        
+        d=new Date(); //observatie: este data serverului nu a clinetului; codul ejs fiind compilat pe server
+        anCurent=d.getFullYear();
+        lunaCurenta=d.getMonth();
+        if(anCurent%400==0 || (anCurent%4==0 && anCurent%100!=0)) nrZile=29;
+        let nrZileCalendar=nrZile[lunaCurenta]
+        primaZiLuna=new Date(anCurent, lunaCurenta, 1);
+        ultimaZiLuna=new Date(anCurent, lunaCurenta, nrZileCalendar);
+        ziSaptPrimaZiLuna=(primaZiLuna.getDay()-1+7)%7;
+        ziSaptUltimaZiLuna=(ultimaZiLuna.getDay()-1+7)%7;
+        for (let i=0;i<ziSaptPrimaZiLuna;i++){
+         %>
+         <div></div> 
+         <% } 
+
+         
+         for (let i=1;i<=nrZileCalendar;i++){
+            var obiectEvenimente=null;
+                if(locals.evenimente)
+                     obiectEvenimente=locals.evenimente.find(function(elem){ return elem.data.valueOf()==new Date(anCurent,lunaCurenta,i).valueOf()})
+             if(obiectEvenimente)
+             {
+             %>
+             <div class="zi eveniment" title="<%= obiectEvenimente.text %>"><%= i %></div> 
+             <%
+             }
+             else{
+            %>
+            <div class="zi"><%= i %></div> 
+            <% } 
+        } %>
+        </div>
+        <%
+        dataServer=new Date();
+        sirData=dataServer.getHours()+":"+dataServer.getMinutes()+":"+dataServer.getSeconds()
+
+        %>
+        <p><b>Ora locala</b></p>
+        <p>Ora server:<span id="data_server"><%= sirData %></span></p>
+        <p>Ora client:<span id="data_client"></span></p>
+        
+    </div>
+      </section>
+      <section id="anunturi">
+          <div><h2>Anunturi
+                <i class="fa-solid fa-bell fa-shake"></i>
+          </h2>
+            <p><time datetime="2020-07-05">5 iulie 2020</time> Am adăugat o machetă nouă de colecție.</p>
+            <p><time datetime="2020-09-15">15 septembrie 2020</time> Avem o ofertă de <s>10%</s> <ins>15%</ins> la avioane.</p>
+            <p><time datetime="2020-12-20">20 decembrie 2020</time> Vom reveni cu oferte noi.</p>
+            <p><time datetime="2020-12-28">28 decembrie 2020</time> În curând vom reînnoi stocul.</p>
+            <p><time datetime="2021-02-11">11 februarie 2021</time> Dacă cumpărați de la noi sigur sunteți colecționari. </div>
+      </section>
+      <section id="tabel">
+          <div class="oferte" style="height: 600px;">
+            <h2>Oferte</h2>
+            <table>
+                <thead>
+                <tr>
+                   <th>Ziua</th>
+                   <th>Produs</th>
+                   <th>Oferta</th>
+                   <th>Ora</th> 
+                </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                    <td>Luni</td>
+                    <td>Machete Auto</td>
+                    <td>10%</td>
+                    <td>10-15</td> 
+                 </tr>
+                 <tr>
+                    <td>Marți</td>
+                    <td>Machete Aniversare</td>
+                    <td>15%</td>
+                    <td rowspan="2">12-14</td>
+                 </tr>
+                 <tr>
+                    <td>Joi</td>
+                    <td>Machete Nave</td>
+                    <td>12%</td>
+                 </tr>
+                 <tr>
+                    <td>Vineri</td>
+                    <td>Machete Colecție</td>
+                    <td>20%</td>
+                    <td>10-12</td>
+                   </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                     <td colspan="4">Oferte valabile luna aceasta</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+      </section>
+      <section id="diverse">
+          <div><h2>Diverse</h2>
+            <p>Lorem ipsum dolor sit amet. Ut debitis dolor non similique laboriosamaut itaque ex delectus illum  
+                ducimus consequuntur. Eum sint officiis est pariatur perspiciatisest voluptatem. </p>
+                <p>Quo quam dolorum aut cupiditate autem rem nulla assumenda quo tempora neque non ipsum sunt. 
+                    Ut atque amet <em>Est odit qui iusto enim aut consequatur officiis in commodi reprehenderit</em>. 
+                    Ut velit neque <strong>Et autem et voluptatem nemo</strong>. </p>
+                    <ul style="text-indent: 50px;"><li>Ut saepe possimus qui repudiandae praesentium eum quidem similique est eveniet tempora. </li>
+                        <li>Sit galisum laborum  voluptas odio aut odio rerum! </li>
+                    </ul>
+                    <p>Aut voluptatem tenetur <em>Qui omnis aut consequatur voluptatibus rem 
+                       aspernatur sunt</em> et facere dignissimos eum amet obcaecati ut facere quod. Ex modi tenetur 
+                        ut veniam aliquid vel laborum nihil ut quia voluptas eum eligendi aspernatur nam quae beatae. </p>
+                         <blockquote cite="https://www.loremipzum.com">Ab excepturi illum sit dolorem temporibus aut
+                         repudiandae sint sed  perferendis. </blockquote>
+
+        </div>
+      </section>
+  </div>
+
+      <section id="exemple">
+        <div>
+            <h2>Cum construim...</h2> 
+                <p>Puteti asambla usor machetele (fiecare dupa priceperea lui) 
+                    sau urmariti cateva exemple sa va convingeti ca se poate
+                    &#128077;! Spor la treaba! </p>
+                <div class="taburi-iframe">
+                <a href="https://www.youtube.com/embed/yWikVQBmYEM" target="ifr-video">Macheta Dacia1300</a>
+                <a href="https://www.youtube.com/embed/TGtCodUO9yE" target="ifr-video" >Macheta Toyota</a>
+                <a href="https://www.youtube.com/embed/30GKhJYv48U" target="ifr-video" >Reteta tort căpșuni</a><br/>
+                </div>
+                <iframe name="ifr-video" width="560" height="320" src="https://www.youtube.com/embed/yWikVQBmYEM" 
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+                
+        </div>
+    </section>
+    
+    
+
+
+    
+  </main>
+    
+  
+<%- include("../fragm/footer.ejs"); %>
+   
+  <script src="resurse/js/calendar.js"></script>  
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,241 @@
+#galerie-animata {
+  width: 80%;
+  padding: 30px;
+  text-align: center;
+  background: var(--body-background-light);
+  border-left: 1px solid var(--shadow-light);
+  border-right: 1px solid var(--shadow-light);
+}
+
+#galerie-animata h2 {
+  color: #851130;
+  margin-bottom: 15px;
+}
+
+#galerie-animata h2::before {
+  content: "7 imagini";
+  margin-right: 10px;
+  color: var(--shadow-color);
+  font-size: 1.2rem;
+  -webkit-animation: nrimag 3s 1 forwards linear;
+          animation: nrimag 3s 1 forwards linear;
+}
+
+#galerie-animata .galerie-a {
+  width: 400px;
+  height: 500px;
+  border: 20px solid var(--background-header-color);
+  -o-border-image: url(/resurse/img/border1.png) 30% round;
+     border-image: url(/resurse/img/border1.png) 30% round;
+  -webkit-box-shadow: -5px -5px 6px var(--shadow-color);
+          box-shadow: -5px -5px 6px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin: auto;
+}
+
+#galerie-animata .galerie-a figure {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  display: none;
+  -webkit-animation-name: gal_anim;
+          animation-name: gal_anim;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  overflow: hidden;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(1) {
+  display: block;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(2) {
+  display: block;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(3) {
+  display: block;
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(4) {
+  display: block;
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(5) {
+  display: block;
+  -webkit-animation-delay: 15s;
+          animation-delay: 15s;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(6) {
+  display: block;
+  -webkit-animation-delay: 18s;
+          animation-delay: 18s;
+}
+
+#galerie-animata .galerie-a figure:nth-last-of-type(7) {
+  display: block;
+  -webkit-animation-delay: 21s;
+          animation-delay: 21s;
+}
+
+#galerie-animata .galerie-a figure figcaption {
+  position: absolute;
+  bottom: 25px;
+  background: white;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+#galerie-animata .galerie-a:hover figure {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+@-webkit-keyframes gal_anim {
+  0% {
+    z-index: 10;
+    opacity: 1;
+    -webkit-clip-path: circle(100%);
+            clip-path: circle(100%);
+  }
+  7.14286% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  9.14286% {
+    opacity: 1;
+    -webkit-clip-path: circle(35%);
+            clip-path: circle(35%);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  14.28571% {
+    z-index: 10;
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+    -webkit-clip-path: circle(5%);
+            clip-path: circle(5%);
+    opacity: 0;
+  }
+  14.38571% {
+    z-index: -10;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  85.71429% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    z-index: -10;
+  }
+  85.81429% {
+    z-index: 0;
+    -webkit-clip-path: circle(100%);
+            clip-path: circle(100%);
+  }
+  100% {
+    opacity: 1;
+    z-index: 0;
+  }
+}
+
+@keyframes gal_anim {
+  0% {
+    z-index: 10;
+    opacity: 1;
+    -webkit-clip-path: circle(100%);
+            clip-path: circle(100%);
+  }
+  7.14286% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  9.14286% {
+    opacity: 1;
+    -webkit-clip-path: circle(35%);
+            clip-path: circle(35%);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  14.28571% {
+    z-index: 10;
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+    -webkit-clip-path: circle(5%);
+            clip-path: circle(5%);
+    opacity: 0;
+  }
+  14.38571% {
+    z-index: -10;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  85.71429% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    z-index: -10;
+  }
+  85.81429% {
+    z-index: 0;
+    -webkit-clip-path: circle(100%);
+            clip-path: circle(100%);
+  }
+  100% {
+    opacity: 1;
+    z-index: 0;
+  }
+}
+
+@-webkit-keyframes nrimag {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes nrimag {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #galerie-animata {
+    display: none;
+  }
+}
+/*# sourceMappingURL=galerie_animata_fragm.css.map */

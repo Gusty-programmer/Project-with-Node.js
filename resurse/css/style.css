@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  overflow: visible;
+}
+
+body a {
+  text-decoration: none;
+  color: var(--cl-link);
+}
+
+main {
+  margin-top: 120px;
+}
+
+main #container {
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  border: 1px solid var(--shadow-light);
+      grid-template-areas: "prezentare prezentare prezentare prezentare" "utilizatori date_utiliz date_utiliz date_site" "calendar calendar tabel tabel" "anunturi anunturi tabel tabel" "diverse diverse diverse diverse";
+}
+
+main #container #watermark, main #container #banner1 {
+  display: none;
+}
+
+main #container #presentation {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: prezentare;
+}
+
+main #container #users {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: utilizatori;
+}
+
+main #container #date-users {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: date_utiliz;
+}
+
+main #container #date-site {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: date_site;
+}
+
+main #container #sectcalendar {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: calendar;
+}
+
+main #container #anunturi {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: anunturi;
+}
+
+main #container #tabel {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: tabel;
+}
+
+main #container #diverse {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: diverse;
+}
+
+main #container #sectcalendar #calendar {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  grid-gap: 0.2rem;
+  color: var(--cl-text);
+}
+
+main #container #sectcalendar #calendar div:nth-child(n+8).zi {
+  border: 1px solid var(--cl-text);
+}
+
+main #container #sectcalendar #calendar div:nth-child(n+8).eveniment {
+  background-color: var(--color-footer);
+}
+
+main #container section {
+  width: 100%;
+  min-height: 50px;
+  height: auto;
+  padding: 20px;
+  position: relative;
+  background-color: var(--culoare-verde-transp);
+}
+
+main #container section > div {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 6px 2px var(--shadow-color);
+          box-shadow: 0 0 6px 2px var(--shadow-color);
+  border-radius: 20px;
+}
+
+main #container section > div .masina-prez {
+  margin-bottom: 30px;
+  width: 35%;
+}
+
+main #container section > div .hr {
+  margin-top: 1rem;
+  width: 100%;
+  height: 20px;
+  background-image: repeating-linear-gradient(var(--border-color), var(--cl-hover) 10%, var(--shadow-color) 20%);
+  border-radius: 20px;
+}
+
+main #container section > div .present {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5rem;
+  padding-left: 20px;
+  line-height: 2.5rem;
+  float: right;
+}
+
+main #exemple {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  background: var(--body-background-light);
+}
+
+main #exemple div .taburi-iframe {
+  height: auto;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main #exemple div .taburi-iframe a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-align: center;
+  width: 110px;
+  color: var(--shadow-color);
+  background-image: var(--gradient-background-left);
+  border-radius: 20px 0px 0px 20px;
+  -webkit-transition: color 0.4s linear;
+  transition: color 0.4s linear;
+}
+
+main #exemple div .taburi-iframe a + a {
+  margin-left: -17px;
+}
+
+main #exemple div .taburi-iframe a:hover {
+  background-color: var(--shadow-color);
+  background-image: none;
+  color: white;
+}
+
+main #exemple div iframe {
+  border: 4px solid var(--shadow-light);
+  height: 320px;
+}
+
+footer {
+  width: 100%;
+  padding: 0;
+  background-color: var(--color-footer);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 120px;
+}
+
+footer ul {
+  width: 30%;
+  margin: auto;
+  padding: 5px 30px;
+  list-style-type: none;
+}
+
+footer .gostart {
+  width: 100px;
+  display: block;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 8px 4px var(--shadow-color);
+          box-shadow: 0 0 8px 4px var(--shadow-color);
+  background-color: var(--culoare-verde-usor);
+  opacity: 0.6;
+  -webkit-transition: opacity 400ms linear;
+  transition: opacity 400ms linear;
+  text-align: center;
+  text-decoration: none;
+  z-index: 22;
+}
+
+footer .gostart #triunghi {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 6px var(--shadow-color);
+  color: transparent;
+}
+
+footer .gostart:hover {
+  opacity: 1;
+}
+
+footer #banner {
+  width: 80%;
+  height: 50px;
+  background-color: var(--culoare-verde-usor);
+  border: 2px solid var(--shadow-light);
+  justify-items: center;
+  line-height: 50px;
+  padding-left: 50px;
+  -webkit-animation: fade_banner 5s forwards;
+          animation: fade_banner 5s forwards;
+  -webkit-transition: all 2s linear;
+  transition: all 2s linear;
+  position: fixed;
+  bottom: 0;
+  left: 20px;
+  z-index: 22;
+}
+
+@-webkit-keyframes fade_banner {
+  0% {
+    left: -100%;
+    background-color: var(--culoare-verde-usor);
+    border-color: var(--shadow-light);
+  }
+  25% {
+    background-color: var(--shadow-color);
+    border-color: var(--shadow-light);
+  }
+  50% {
+    background-color: var(--shadow-light);
+    border-color: var(--shadow-color);
+  }
+  100% {
+    left: 10%;
+    background-color: var(--shadow-color);
+    border-color: var(--shadow-light);
+  }
+}
+
+@keyframes fade_banner {
+  0% {
+    left: -100%;
+    background-color: var(--culoare-verde-usor);
+    border-color: var(--shadow-light);
+  }
+  25% {
+    background-color: var(--shadow-color);
+    border-color: var(--shadow-light);
+  }
+  50% {
+    background-color: var(--shadow-light);
+    border-color: var(--shadow-color);
+  }
+  100% {
+    left: 10%;
+    background-color: var(--shadow-color);
+    border-color: var(--shadow-light);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  main #container {
+        grid-template-areas: "prezentare  prezentare" "utilizatori  date_utiliz" "date_site date_site" "calendar tabel" "anunturi tabel" "diverse diverse";
+  }
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    margin-top: 140px;
+  }
+  main #container {
+    display: block;
+  }
+  main #container #presentation {
+    height: 700px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

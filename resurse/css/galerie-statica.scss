@@ -1,0 +1,94 @@
+
+*{
+    box-sizing: border-box;
+}
+#galerie-statica{
+    width: 80%;
+    padding: 0 50px;
+    margin-top: 30px;
+    background: var(--body-background-light);
+    border-left: 1px solid var(--shadow-light) ;
+	border-right: 1px solid var(--shadow-light) ;
+    h2{
+        text-align: center;
+        color: #851130;  
+    }
+    #grid-galerie{
+        counter-reset: nr-img;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-row-gap:0.7em;
+        grid-column-gap:0.5em;
+        
+        img{
+            box-shadow: 0 0 2px 2px #ccc;
+           max-width: 100%;
+        } 
+       
+        figure{
+            figcaption{
+                text-align: center;
+                &::before{
+                    content: counter(nr-img, upper-roman) ". ";
+                    counter-increment: nr-img 1;
+                }
+            }
+            @media screen and (min-width:900px){
+                @for $i from 0 through 3 {
+                    @for $j from 1 through 3{
+                      $x1: $i + 1;  
+                      $y1: $j ;
+                      $x2: $i + 2;
+                      $y2: $j + 1;
+                      $a:$j + $i + $i * 2;
+                      @if $a>5 {
+                          $a: $a - 1;    
+                      }
+                       @if $a>7 {
+                        $a: $a - 1;    
+                    } 
+                      &:nth-child(#{$a}){
+                          grid-area: #{$x1}/#{$y1}/#{$x2}/#{$y2};
+                                }
+                    } 
+                }
+            } 
+            *{
+                transition: all 1200ms linear;
+                
+            } 
+            &:hover{
+                img{
+                    transform: scale(125%) rotateZ(-10deg);
+                    border:4px solid darkgreen;
+                    border-radius: 4px;
+                    filter: blur(0px);
+                     
+                }
+            }
+
+       }
+    }
+}
+@media screen and (max-width:900px){
+    #galerie-statica{
+     #grid-galerie {
+        grid-template-columns: 1fr 1fr;
+        figure{
+            figcaption{
+               text-align: left; 
+               
+            }
+        }
+        
+    }   
+    }  
+}
+@media screen and (max-width:700px){
+    #galerie-statica{
+     #grid-galerie {
+       display: block;
+    }   
+    } 
+}

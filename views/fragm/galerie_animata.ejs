@@ -1,0 +1,11 @@
+<section id="galerie-animata" >
+    <h2>Galerie animata</h2>
+    <div class="galerie-a">
+        <% for (let imag of locals.imagini){  %>
+        <figure>  
+                <img src="/<%-imag.mare%>" alt="<%- imag.categorie %>"/>
+            <figcaption><%-imag.descriere%></figcaption>
+        </figure>
+    <% } %>
+    </div>    
+</section>

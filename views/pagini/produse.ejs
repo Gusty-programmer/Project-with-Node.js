@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta name="description" content="Magazin Machete- produse."/>
+        <title>Magazin Machete - produse</title> 
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+     <%- include("../fragm/head.ejs"); %>  
+        
+     
+    </head>
+    <body>
+        <%- include("../fragm/header.ejs"); %>
+        <main>  
+            <section id="produse" class="container-produse">
+                <%- include("../fragm/filtre.ejs"); %>
+              <div class="produse">
+                 <% for(let prod of locals.produse){ %>
+                    <article class="produs">
+                        <div class="name">
+                           <a href="/produs/<%- prod.id %>"><span class="val-nume"><%- prod.nume%></span></a> 
+                        </div> 
+                        <div class="imag">
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/galerie/mic/<%- prod.imagine %>" alt="<%- prod.nume %>"/></a>
+                        </div>
+                        
+                        <div class="info-prod">
+                        <div>Pret&nbsp;<span class="val-pret"><%- prod.pret %></span>&nbsp;Lei</div> 
+                        <div class="hidden"><span class="val-nivel"> 
+                                        <%
+                                         var niv = "usor";
+                                        if(prod.nivel > 150 && prod.nivel <= 250) {
+                                            niv = "mediu";
+                                        } 
+                                         else if(prod.nivel > 250) {
+                                             niv = "ridicat";
+                                            }  
+                                          %>
+                                          <%- niv %></span>
+                        <span class="val-tara"><%- prod.tara %></span>
+                        <span class="mat" title="<%- prod.materiale %>"><span class="val-mat" ><%- prod.materiale.length %></span></div>
+                        <div><span class="val-stoc"><%if(prod.stoc){ %>
+                                    <%- "in stoc" %> 
+                                                           <% }
+                                                           else { %>
+                                                           <%- "out of stoc" %> 
+                                                       <% } %>
+                                                        </div>
+                                   
+                            <div class="categ">
+                                <p><span class="val-categorie"><%- prod.categorie %></span></p>
+                            </div>
+                            
+                            <div class="selectare">
+                            <div class="select">
+                                <label class="sel-cos">
+                                    Adauga in cos
+                                    <input  type="checkbox" class="select-cos"
+                                            value="<%-prod.id %>" autocomplete="off">
+                                            <div class="check"></div>
+                                </label>
+                                
+                            </div>
+                        <div class="cantitate">
+                                    <label for="nr_prod">Cantitate
+                                        <input id="nr_prod" type="number" value="1">
+
+                                    </label>
+                                </div>
+                        </div>
+                        </div>  
+                    </article>
+                    
+                
+               <% } %>  
+              </div>
+              
+            </section>
+            
+        </main>
+        <%- include("../fragm/footer.ejs"); %>
+    </body>
+</html>

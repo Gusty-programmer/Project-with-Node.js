@@ -1,0 +1,26 @@
+#err-coloane{
+	background-color: var(--body-background-light);
+	border-left: 1px solid var(--shadow-light);
+	border-right: 1px solid var(--shadow-light);
+}
+		#err-imag{
+			width:30%;
+			
+		}
+		
+		#err-imag img{
+			width:100%;
+		}
+		#err-coloane{
+			display:flex;
+			padding-top:1em;
+			padding-left:1em;
+		}
+		
+		#err-coloane section{
+			font-size:2em;
+			padding-left:1em;
+		}
+		#err-coloane h2{
+			font-size:2em;
+		}

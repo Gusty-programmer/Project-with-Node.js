@@ -1,0 +1,32 @@
+<section id="galerie-statica">
+    <h2>Galerie statica</h2>
+    
+    <div id="grid-galerie">
+    <% 
+    let d = new Date();
+    let rand = Math.floor(Math.random() * 4);
+    let min = d.getMinutes();
+    min = (min + rand * 15) % 60;
+    let count = 0
+    for(let imag of locals.imagini){
+        
+        if(Math.ceil(min / 15) == imag.sfert_ora){
+         count ++;
+        if(count > 10){
+            break;
+        }
+        
+        %>
+        
+        <figure> 
+            <picture>
+                <source srcset="<%- imag.mic %>" media="(max-width:700px)" />
+                <source srcset="<%- imag.mediu %>" media="(max-width:900px)" />
+                <img src="<%- imag.mare %>" alt="<%- imag.categorie %>">
+            </picture>
+            <figcaption><%- imag.descriere %></figcaption>
+        </figure>
+   <% } %> 
+   <% } %> 
+    </div>
+</section>

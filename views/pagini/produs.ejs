@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta name="description" content="Magazin Machete- produs."/>
+        <title>Magazin Machete - produse</title> 
+         
+        <%- include("../fragm/head.ejs"); %> 
+    </head>
+    <body>
+        <%- include("../fragm/header.ejs"); %>
+        <main>
+            <section id="prodsection">
+              <h2>Pagina Produs</h2> 
+                    <article id="produs">
+                        <h3><span><%- locals.prod.nume %></span></h3> 
+                       <p>Descriere: <span><%- locals.prod.descriere %></span></p>
+                       <p>Categorie: <span><%- locals.prod.categorie %></span></p>
+                       <p>Tara: <span><%- locals.prod.tara %></span></p>
+                       <p>Tip macheta: <span><%- locals.prod.tip_macheta %></span></p>
+                       <p>Scara: <span>1:<%- locals.prod.scara %></span></p>
+                       <p>Numar piese: <span><%- locals.prod.nivel %></span></p>
+                       <p>Materiale: <span><%- locals.prod.materiale %></span></p>
+                       <p>Pret: <span><%- locals.prod.pret %></span> Lei</p>
+                       
+                       
+                       <figure class="imag-produs">
+                        <img  src="/resurse/imagini/galerie/mic/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                    </figure>
+                    </article>
+            </section>
+            
+        </main>
+        <%- include("../fragm/footer.ejs"); %>
+    </body>
+</html>

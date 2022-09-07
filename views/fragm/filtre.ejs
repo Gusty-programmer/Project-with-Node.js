@@ -1,0 +1,61 @@
+<section id="filtre">
+    <div>
+       <label> Nume: <input type="text" id="inp-nume"></label> 
+    </div>
+<div class="dif"> Dificultate:
+<label><input id="i_rad1"  name="gr_rad" value="1" type="radio"/>
+    Usor (nr.piese &lt; 150)    
+</label>
+<label><input id="i_rad2"  name="gr_rad" value="2" type="radio"/>
+    Mediu (150 &le; nr.piese &lt; 250)
+</label>
+<label><input id="i_rad3" name="gr_rad" value="3" type="radio"/>
+    Ridicat (nr.piese &ge; 250) 
+</label>
+<label><input id="i_rad4" checked name="gr_rad" value="4" type="radio"/>
+    Toate  
+</label>
+</div>
+
+<div>
+<label> Pret minim:</label>
+ <p><span id="min"> 0 </span><input type="range" id="inp-pret" value="0" min="0"  max="70"><span id="max">0</span> <span id="infoRange">(0)</span></p>
+</div>
+<div>
+<!-- Select simplu -->
+<label>
+  Categorie:         
+<select id="inp-categorie">  
+    <option id="sel-toate" selected value="toate">toate</option>
+    <% for (let opt of locals.optiuni) { %>
+        <option value="<%- opt %>"><%- opt %> </option>
+    <% } %>
+</select>
+</label>  
+</div>
+<!-- Select multiplu -->
+<div>
+<label>Materiale:
+    <select id="inp_sel_mlt" multiple size="4">
+        <option value="plastic" >Plastic</option>
+        <option value="cauciuc" >Cauciuc</option>
+        <option value="lemn">Lemn</option>
+        <option value="adeziv" >Adeziv</option>
+        <option value="metal">Metal</option>
+    </select>
+</label>
+</div>
+
+<div>
+<p>
+<label>Sorteaza dupa pret si materiale</label><br><br>
+<button id="sortCrescNume">Crescator</button>
+<button id="sortDescrescNume">Descrescator</button>
+</p>
+</div>
+<div>
+<button id="filtrare">Filtreaza</button> 
+<button id="resetare">Reseteaza</button>
+</div>
+<p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+</section>

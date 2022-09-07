@@ -1,0 +1,10 @@
+@use 'sass:math';
+@use '../resurse/css/galerie_animata_fragm' with (
+ 
+  $nrimag: <%- locals.nrImagini %>,
+  $t1: <%- locals.procent[0] %>%,
+  $t2: <%- locals.procent[1] %>%,
+  $t3: <%- locals.procent[2] %>%
+  
+);
+/*# sourceMappingURL=galerie_animata.css.map */

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Magazin Machete - utilizatori.">
+        <meta name="keywords" content="magazin, machete, utilizatori">
+        <link rel="stylesheet" href="/resurse/css/useri.css" type="text/css" />
+        <title>Magazin Machete - utilizatori</title>
+        <%- include("../fragm/head") %>     
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+    </head>
+    <body>
+    <%- include("../fragm/header") %>
+
+    <main>
+    <div class="afisaj">
+        <h2>Useri</h2>
+
+		<table id="useri">
+		  <tr>
+			<th>id</th><th>Username</th><th>Nume</th><th>Prenume</th><th>Data</th><th>Rol</th>
+		  </tr>
+
+		  <% for (var i = 0; i < useri.length; i++) { 
+			  if(locals.acces == "moderator"){
+				acces1 = useri[i].rol=="comun" || useri[i].rol=="admin"
+			  }
+			  else acces1 = useri[i].rol=="comun"
+			  
+				if(acces1){
+				%>
+				<tr>
+				  <td><%= useri[i].id %></td>
+				  <td><%= useri[i].username %></td>
+				  <td><%= useri[i].nume %></td>
+				  <td><%= useri[i].email %></td>				  
+				  <%  
+					d=new Date(useri[i].data_adaugare)
+					sir_data=`${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+				  %>
+				  <td><%=  sir_data %></td>
+				   <td><%=  useri[i].rol %></td>
+				   <td><form id="modif" method="post" action="/modif_utiliz">
+					<label>
+						<input type="text" name="id_utiliz"  value="<%= useri[i].id %>" >
+						<input type="text" name="rol_utiliz"  value="<%= useri[i].rol %>" >
+						<input type="text" name="nume_utiliz"  value="<%= useri[i].nume %>" >
+						<input type="text" name="mail_utiliz"  value="<%= useri[i].email %>" >
+						<input type="text" name="prenume_utiliz"  value="<%= useri[i].prenume %>" >
+					</label>
+					<%  
+					let valInput = "Avansează";
+					if(useri[i].rol=="admin"){
+						valInput = "Retrogradează"
+
+					}%>
+					<input id="submt" type="submit" value=" <%- valInput %>" >
+					
+					
+				</form></td>
+				</tr> 
+				
+				<% } %>			
+		  <% } %>
+		</table>
+		
+		<% if(locals.mesaj) { %>
+			<p><%- locals.mesaj+"<br/>"%></p>
+			<% } %>
+			<% if(locals.err) { %>
+			<p class="error"><%- locals.err %></p> 
+			<% } %>
+		
+		
+	</div>
+</main>
+
+
+    <%- include("../fragm/footer") %>
+
+</body>
+</html>

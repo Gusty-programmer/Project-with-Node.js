@@ -1,0 +1,86 @@
+<header class="header">
+    <div class="header-top">
+        <img src="resurse/ico/PREico.png" alt="imagine"/> 
+        <h1 class="title">Magazin Machete</h1>
+        <% if (!locals.utilizator) { %>
+			<div class="log">
+                
+                Login: 
+                <form id="login" method="post" action="/login">
+                    
+                    
+                         <input type="text" name="username" value="" class="login" placeholder="username">
+                    
+                    
+                        <input type="password" name="parola" value="" class="login" placeholder="password">
+                   
+                    
+                    <input type="submit" value="Login">
+                </form>
+                <% if(locals.mesajLogin) {%>
+                    <p style='color:red'>Eroare: <%- locals.mesajLogin %></p>
+                <% } %>
+            
+                </div>
+            <% } %>
+        <div>
+        <button id="schimba_tema">Light/Dark</button>
+        </div>
+        </div>
+        
+    <nav>
+        <label id="hamburger" for="ch-menu">
+            <img src="/resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+        </label>
+        <input id="ch-menu" type="checkbox">
+        <ul class="nav">
+            <li><div><i class="fa fa-home home"></i><span id="acasa">Acasa</span></div>
+                <ul class="nav-home">
+                    <li><a href="/index#presentation">Bine ati venit</a></li>
+                    <li><a href="/index#users">Utilizatori</a></li>
+                    <li><a href="/index#anunturi">Anunturi</a></li>
+                    <li><a href="/index#sectcalendar">Calendar</a></li>
+                    <li><a href="/index#tabel">Oferte</a></li>
+                    <li><a href="/index#index-intrebari">Întrebări</a></li>
+                    <li><a href="/index#diverse">Diverse</a></li>
+                </ul>
+                
+            </li>
+            <% if (!locals.utilizator) { %>
+                <li><a href="/inregistrare">Inregistrare</a></li>
+            <% }  %>
+            <li ><div>Produse</div>
+                <ul class="nav-produse">
+                    <li><a href="/produse">Toate</a></li>
+                    <li><a href="/produse?tip=avion">Avioane</a></li>
+                    <li><a href="/produse?tip=tank">Tank</a></li>
+                    <li><a href="/produse?tip=auto">Auto</a></li>
+                    <li><a href="/produse?tip=nave">Nave</a></li>
+                </ul>
+            </li>
+            <li><div>Galerie</div>
+                <ul class="nav-menu">
+                    <li><a href="/galerie#galerie-statica">Galerie statica</a></li>
+                    <li><a href="/galerie#galerie-animata">Galerie animată</a></li>
+                    </ul>
+             </li>
+            <li><a href="/despre">Despre</a></li>
+            <% if (locals.utilizator && (locals.utilizator.rol=="admin" || locals.utilizator.rol=="moderator")) { %> 
+                <li><a href="/useri">Utilizatori</a></li>
+            <% } %>
+            <li><a href="/cos-virtual"><i class="fas fa-shopping-cart" title="Coș cumpărături"></i></a></li>
+            <li><a href="/contact">Contact</a></li>
+         
+        
+            <% if (locals.utilizator) { %>
+                <li><div>Logat:<%- locals.utilizator.username %> </div>
+                    <ul>
+                <li><a href="/profil">Profil</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            </li>
+            <% }  %>
+        </ul>
+    </nav>
+</header>
+   

@@ -1,0 +1,9 @@
+@use 'sass:math';
+@use '../resurse/css/galerie_animata_fragm' with (
+ 
+  $nrimag: 11,
+  $t1: 4.545454545454546%,
+  $t2: 9.090909090909092%,
+  $t3: 90.9090909090909%
+  
+);

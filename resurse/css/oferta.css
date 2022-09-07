@@ -1,0 +1,68 @@
+.oferte {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 500px;
+}
+
+table tr {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+table tr:hover {
+  -webkit-box-shadow: 0 0 4px 4px var(--shadow_color) inset;
+          box-shadow: 0 0 4px 4px var(--shadow_color) inset;
+}
+
+table td, table th {
+  padding: 10px;
+  border: 2px solid var(--cl-text);
+}
+
+table td + td:nth-child(1), table td + th:nth-child(1), table th + td:nth-child(1), table th + th:nth-child(1) {
+  border-left: 3px solid var(--border-color);
+}
+
+table td + td:nth-child(2), table td + th:nth-child(2), table th + td:nth-child(2), table th + th:nth-child(2) {
+  border-left: 3px solid var(--cl-hover);
+}
+
+table td + td:nth-child(3), table td + th:nth-child(3), table th + td:nth-child(3), table th + th:nth-child(3) {
+  border-left: 3px solid var(--border-color);
+}
+
+table td + td:nth-child(4), table td + th:nth-child(4), table th + td:nth-child(4), table th + th:nth-child(4) {
+  border-left: 3px solid var(--cl-hover);
+}
+
+table thead {
+  border-bottom: 4px solid var(--cl-text);
+}
+
+table tfoot {
+  border-top: 4px solid var(--cl-textr);
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  #tabel {
+    overflow-x: scroll;
+  }
+}
+/*# sourceMappingURL=oferta.css.map */

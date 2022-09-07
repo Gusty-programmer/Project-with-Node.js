@@ -1,0 +1,101 @@
+$transformare_i:  rotate(0deg) ;
+$transformare_f: rotate(720deg) ;
+$nrimag: 7 !default;
+$t1: 7.14285714% !default;
+$t2: 14.2857143% !default;
+$t3: 85.7142857% !default;
+$durata: $nrimag * 3s;
+
+
+#galerie-animata{
+	width: 80%;
+	padding: 30px;
+	text-align: center;
+	background: var(--body-background-light);
+	border-left: 1px solid var(--shadow-light) ;
+	border-right: 1px solid var(--shadow-light) ;
+
+	h2{
+	
+	color: #851130;
+	margin-bottom: 15px;
+	&::before{
+	content: "#{$nrimag} imagini";
+	margin-right: 10px;
+	color: var(--shadow-color);
+	font-size: 1.2rem;
+	animation: nrimag 3s 1 forwards linear  ;
+}
+}
+.galerie-a{
+	width:400px;
+	height:500px;
+	border: 20px solid var(--background-header-color); 
+	border-image: url(/resurse/img/border1.png) 30%  round;
+	box-shadow: -5px -5px 6px var(--shadow-color);
+	position:relative;
+	overflow:hidden;
+	margin-top: 2rem;
+	margin: auto;
+  figure{	
+	position:absolute;
+	width: 100%;
+	left:0;
+	top:0;
+	z-index:0;
+	display: none;
+	animation-name:gal_anim;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	animation-fill-mode:forwards;
+	animation-play-state: running;
+	animation-duration: $durata;	
+	transform-origin:center center;
+	overflow: hidden;
+	@for $i from 1 through $nrimag{
+		&:nth-last-of-type(#{$i}){
+			display: block;
+			animation-delay: $i * 3s;
+		}
+	}
+  
+	figcaption{
+		position:absolute;
+		bottom:25px;
+		background:rgb(255,255,255);
+		width:100%;
+		text-align:center;
+		z-index: 2;
+		
+	   }
+}
+  &:hover{
+	  figure{
+
+	animation-play-state: paused;
+}
+  }
+  
+} 
+}
+@keyframes gal_anim{ 
+	0% {z-index:10;opacity:1;clip-path: circle(100%);}
+	#{$t1}{transform:$transformare_i;} 
+	#{$t1+2}{opacity:1;clip-path: circle(35%);transform:$transformare_i;}
+	#{$t2}{z-index:10;transform:$transformare_f;clip-path: circle(5%);opacity:0;}
+	#{$t2+0.1}{z-index:-10; transform:$transformare_i;}
+	#{$t3}{transform:$transformare_i;z-index:-10;}	
+	#{$t3+0.1}{z-index:0;clip-path: circle(100%);}
+	100%{opacity:1;z-index:0;}
+}
+@keyframes nrimag{
+	0%{opacity: 1;}
+	70%{opacity: 1;}
+	100%{opacity: 0;}
+}
+
+@media screen and (max-width:900px){
+	#galerie-animata{
+		display: none;
+	}
+}

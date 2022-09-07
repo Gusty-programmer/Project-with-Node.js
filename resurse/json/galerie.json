@@ -1,0 +1,191 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier":"alfa-romeo-auto.png",
+			"descriere":"Alfa Romeo",
+            "categorie":"auto",
+			"sfert_ora": 1
+		},
+		{
+			"fisier":"ferrari-f348t-auto.png",
+			"descriere":"Ferrari F348",
+            "categorie":"auto",
+			"sfert_ora": 2
+		},
+		{
+			"fisier":"ford-galaxic-auto.png",
+			"descriere":"Ford Galaxic",
+            "categorie":"auto",
+			"sfert_ora": 3
+		},
+		{
+			"fisier":"chevrolet-oldtimer-auto.png",
+			"descriere":"Chevrolet limousine",
+            "categorie":"auto",
+			"sfert_ora": 4
+		},
+		{
+			"fisier":"ford-mustang-auto.png",
+			"descriere":"Ford Mustang ",
+            "categorie":"auto",
+			"sfert_ora": 1
+		},
+		{
+			"fisier":"dodge-sheriff-auto.png",
+			"descriere":"Dodge Sheriff",
+            "categorie":"auto",
+			"sfert_ora": 2
+		},
+		{
+			"fisier":"mercedes-220s-auto.png",
+			"descriere":"Mercedes Benz 220 S Coupe",
+            "categorie":"auto",
+			"sfert_ora": 3
+		},
+		{
+			"fisier":"limosine-oldtimers-auto.png",
+			"descriere":"Maserati Mistral Cabriolet",
+            "categorie":"auto",
+			"sfert_ora": 4
+		},
+		{
+			"fisier":"opel-cabriolet-auto.png",
+			"descriere":"Opel Record Cabriolet",
+            "categorie":"auto",
+			"sfert_ora": 1
+		},
+		{
+			"fisier":"porche-auto.png",
+			"descriere":"Porche 718 Cayman",
+            "categorie":"auto",
+			"sfert_ora": 2
+        },
+		{
+			"fisier":"audi-50-auto.png",
+			"descriere":"Audi 50",
+            "categorie":"auto",
+			"sfert_ora": 2
+        },
+		{
+			"fisier":"a380-avion.png",
+			"descriere":"Airbuse-A380",
+            "categorie":"avioane",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"f-22-avion.png",
+			"descriere":"Avion de vanatoare F22",
+            "categorie":"avioane",
+			"sfert_ora": 4
+		},
+        {
+			"fisier":"mig-21-avion.png",
+			"descriere":"Avion de vanatoare Mig21",
+            "categorie":"avioane",
+			"sfert_ora": 1
+		},
+        {
+			"fisier":"avion2-avion.png",
+			"descriere":"Binomotor cu elice",
+            "categorie":"avioane",
+			"sfert_ora": 2
+		},
+        {
+			"fisier":"f117-avion.png",
+			"descriere":"F-117-invizibil",
+            "categorie":"avioane",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"avion1-avion.png",
+			"descriere":"Messer-Shmith",
+            "categorie":"avioane",
+			"sfert_ora": 4
+		},
+        {
+			"fisier":"avion3-avion.png",
+			"descriere":"Avion bibotor",
+            "categorie":"avion",
+			"sfert_ora": 1
+		},
+        {
+			"fisier":"panze-lupta-nave.png",
+			"descriere":"Nava de lupta cu panze",
+            "categorie":"nave",
+			"sfert_ora": 2
+		},
+        {
+			"fisier":"panze-nave.png",
+			"descriere":"Corabie cu panze",
+            "categorie":"nave",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"nave-marfa.png",
+			"descriere":"Nava de transport marfa",
+            "categorie":"nave",
+			"sfert_ora": 4
+		},
+        {
+			"fisier":"portavion-nave.png",
+			"descriere":"Portavion",
+            "categorie":"nave",
+			"sfert_ora": 1
+		},
+        {
+			"fisier":"titanic-nave.png",
+			"descriere":"Nava de croaziera-Titanic",
+            "categorie":"nave",
+			"sfert_ora": 2
+		},
+        {
+			"fisier":"nave-viking.png",
+			"descriere":"Nava de vikingi",
+            "categorie":"nave",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"t-34-tank.png",
+			"descriere":"Tank T34",
+            "categorie":"tank",
+			"sfert_ora": 4
+		},
+        {
+			"fisier":"t-55r-tank.png",
+			"descriere":"Tank T55",
+            "categorie":"tank",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"tank1-tank.png",
+			"descriere":"Tank",
+            "categorie":"tank",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"panzer-tank.png",
+			"descriere":"Tank Panzer",
+            "categorie":"tank",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"bradley-tank.png",
+			"descriere":"Tank Bradley",
+            "categorie":"tank",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"obj315r-tank.png",
+			"descriere":"Tank Obj-315",
+            "categorie":"tank",
+			"sfert_ora": 3
+		},
+        {
+			"fisier":"abrams-m1-tank.png",
+			"descriere":"Tank Abrams M1",
+            "categorie":"tank",
+			"sfert_ora": 2
+		}
+	]
+}

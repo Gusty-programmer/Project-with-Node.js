@@ -1,0 +1,123 @@
+@import"oferta.css";
+@import"nav.css";
+@import"inreg.css";
+@import"video.css";
+
+@import"produs.css";
+
+
+html{
+    /*am setat font-size-ul radacinii; unitatile in rem vor fi relative la acest font-size*/
+    font-size:20px;
+   /* background-image: url('/resurse/imagini/backgr1.jpg'); */
+    scroll-behavior: smooth;
+    width: 100vw;
+}
+body{
+    /* background-image: url('/resurse/imagini/backgr1.jpg'); */
+    --background-header-color : #2bcb5e;
+    --shadow-color:#0d582d;
+    --shadow-light:#619c7b;
+	--culoare-verde-usor:rgb(198, 229, 173);
+    --culoare-verde-transp:rgba(198, 229, 173, 0.849);
+	--background-color-submenu : rgb(196, 224, 131);
+    --border-color:rgb(144, 54, 228);
+    --color-footer: rgb(53, 139, 89);
+    --cl-light-t:rgb(141, 192, 154);
+    --cl-hover:rgb(156, 219, 221);
+    --cl-link: rgb(11, 39, 177);
+    --cl-text:black;
+    --color-important:rgb(255, 94, 0);
+    --body-background:rgba(212, 182, 105, 0.5);
+    --body-background-light:rgba(255, 255, 255, 0.5);
+    --gradient-background:linear-gradient(var(--shadow-light), var(--cl-light-t));
+    --gradient-background-right:linear-gradient(to right, var(--shadow-light), var(--cl-light-t));
+    --gradient-background-left:linear-gradient(to right, var(--cl-light-t), var(--shadow-light));
+    --alb: white;
+    
+}
+
+body.dark{
+    /* background-image: url('/resurse/imagini/backgr.jpg'); */
+    --background-header-color : #4e8015;
+    --shadow-color:#0b3d21;
+    --shadow-light:#2d4236;
+	--culoare-verde-usor:rgb(115, 139, 96);
+    --culoare-verde-transp:rgba(94, 128, 67, 0.527);
+	--background-color-submenu : rgb(133, 153, 88);
+    --color-footer: rgb(40, 104, 67);
+    --cl-light-t:rgb(113, 155, 123);
+    --cl-hover:rgb(96, 144, 146);
+    --cl-text:white;
+    --color-important:rgb(255, 60, 0);
+    --body-background:rgb(63, 60, 60);
+    --body-background-light:rgba(70, 87, 63, 0.5);
+    --gradient-background:linear-gradient(var(--shadow-light), var(--cl-light-t));
+    --gradient-background-right:linear-gradient(to right, var(--shadow-light), var(--cl-light-t));
+    --gradient-background-left:linear-gradient(to right, var(--cl-light-t), var(--shadow-light));
+    
+}
+
+body{
+    width: 100vw;
+    margin-top:0;
+    margin-bottom:0;
+    --body-padding:3rem;
+    color:var(--cl-text);
+    background-repeat: no-repeat;
+
+    /* background-ul va ramane fix cand dam scroll*/
+    background-attachment: fixed;
+
+    /*imaginea de background sa acopere tot containerul*/
+    background-size: cover;
+   background-color: var(--body-background);
+    padding-top:0;
+    padding-bottom:0;
+
+    /*nu permite body-ului sa se micsoreze mai mult de atat
+    deoarece pagina nu ar mai putea fi parcursa
+    trebuie mereu setata o latime minima pentru pagina
+    pentru a nu risca sa avem afisat cate un singur cuvant pe rand...*/
+    min-width:330px;/*latimea minima trebuie sa fie mai mica decat orice latime de dispozitiv pentru a nu avea scroll orizontal*/
+}
+
+.despre{
+    border: 1px solid var(--shadow-color);
+    width: 80%;
+    margin: auto;
+    height: 75vh;
+    background-color: var(--culoare-verde-transp);
+    padding: 50px;
+    margin-top: 120px;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 900px){
+    html{
+        font-size: 0.9rem;
+       
+    }
+}
+@media screen and (max-width: 700px){
+    html{
+        font-size: 0.8rem;
+    }
+}
+@media print{
+    h1{
+		page-break-after: always;
+		margin-top: 50%;
+		text-align:center;
+		margin-left:1cm;
+	}
+    .header-top img{
+        display: none;
+    }
+    header nav ul.nav{
+        display: block;
+        border: none;
+        background-color: white;
+    }
+}
+

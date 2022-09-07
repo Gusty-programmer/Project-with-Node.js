@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "ejs": "^3.0.2",
+    "express": "^4.17.3",
+    "express-session": "^1.17.3",
+    "formidable": "^2.0.1",
+    "git": "^0.1.5",
+    "helmet": "^5.1.0",
+    "html-pdf-node": "^1.0.7",
+    "jpg": "^0.0.1",
+    "juice": "^8.0.0",
+    "node": "^17.7.2",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "qrcode": "^1.5.0",
+    "request": "^2.88.2",
+    "sass": "^1.50.1",
+    "sharp": "^0.30.4",
+    "xml-js": "^1.6.11"
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Magazin Machete- înregistrare utilizatori.">
+        <meta name="keywords" content="inregistrare, utilizatori">
+        <link rel="stylesheet" href="/resurse/css/inreg.css" type="text/css" />
+        <title>Magazin Machete- înregistrare </title>
+        <%- include("../fragm/head") %>     
+        <script type="text/javascript" src=/resurse/js/inregistrare.js></script>
+    </head>
+    <body>
+    <%- include("../fragm/header") %>
+
+    <main>
+    <div class="afisaj">
+        <h1>Inregistrare utilizator</h1>
+        
+		<% if (locals.err !="") { %>
+			<%-include("../fragm/formular", {action: "/inreg"}) %>
+	<% } %>
+	<% if(locals.raspuns) { %>
+	<%- locals.raspuns+"<br/>"%>
+	<% } %>
+	<% if(locals.err) { %>
+	<p class="error"><%- locals.err %></p> 
+	<% } %>
+    </div>
+</main>
+
+
+    <%- include("../fragm/footer") %>
+
+
+</body>
+</html>
