@@ -18,8 +18,8 @@ The products can be bought within the limit of the available stock.
 
 ## Screenshots
 <p>
-<img src = "proiecte-html/my-projects/Nodejs/Machete/resurse/imagini/prscr11.png"  alt ="screenshot" width = "250"/>
-<img src = "proiecte-html/my-projects/Nodejs/Machete/resurse/imagini/prscr12.png"  alt ="screenshot" width = "250"/>
+<img src = "https://github.com/Gusty-programmer/Project-with-Node.js/blob/master/resurse/imagini/prscr11.png"  alt ="screenshot" width = "250"/>
+<img src = "https://github.com/Gusty-programmer/Project-with-Node.js/blob/master/resurse/imagini/prscr12.png"  alt ="screenshot" width = "250"/>
 </p>
 
 ## Tech Stack
